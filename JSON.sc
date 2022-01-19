@@ -18,9 +18,9 @@ JSON {
         });
 
         if(obj.isKindOf(Dictionary), {
-            out = List.new;
+			out = Array.newClear(obj.keys.size);
             obj.keysValuesDo({ arg key, value;
-                out.add( key.asString.asCompileString ++ ":" + JSON.stringify(value) );
+				out = out.add( key.asString.asCompileString ++ ":" + JSON.stringify(value) );
             });
             ^("{" ++ (out.join(", ")) ++ "}");
         });
